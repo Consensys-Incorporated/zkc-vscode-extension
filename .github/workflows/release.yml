@@ -3,10 +3,14 @@ name: Release
 on:
   release:
     types:
-      - created
+      - published
+
+permissions: {} # lock everything by default (least-privilege)
 
 jobs:
   release:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
